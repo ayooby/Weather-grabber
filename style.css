@@ -1,0 +1,29 @@
+html , body{
+	height: 100%;
+}
+h1,p {
+	text-shadow: 1px 1px 11px #fff;
+	color: black;
+}
+container{
+	padding-top: 100px;
+}
+
+.background{
+	z-index: 2;
+	background-image: url("background.jpg");
+	background-position: center;
+	background-color: #fff;
+	height: 100%;
+	width: 100%;
+}
+.form{
+	margin-top: 20px;
+}
+.btn{
+	margin-top: 20px;
+}
+.alert{
+	margin-top: 20px;
+	display: none;
+}

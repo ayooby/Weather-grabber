@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="jquery.min.js"></script>
+
+	<meta charset="UTF-8">
+	<title>Weather</title>
+</head>
+<body>
+<div class="background container">
+		<div class="form col-md-6 col-md-offset-3 row">
+			<h1>Weather Grabber</h1>
+			<p class="lead">Enter a name of City and wait to load data</p>
+			<div class="form-group">
+				<input name="city" type="text" placeholder="Type City name: Los angles ..." class="form-control" id="city">
+				<button id="btn" class="btn btn-success btn-lg">Find Weather</button>
+			</div> 
+		<div class="row">
+		<div class="alert alert-success" id="result"></div>		
+		<div class="alert alert-danger" id="error">something is not right</div>		
+		</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$("#btn").click(function(){
+		event.preventDefault();
+		if ($("#city").val()==""){
+			$("#error").fadeIn();
+			$("#result").hide();
+		}
+		else{
+
+		$.get("weather.php?city="+$("#city").val(), function(data){
+			$("#result").fadeIn().html(data);
+			$("#error").hide();
+		});
+		}
+	});
+</script>
+</html>
